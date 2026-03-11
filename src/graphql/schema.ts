@@ -12,5 +12,6 @@ export const typeDefs = `#graphql
 
   type Query {
     characters: [Character!]!
+    character(id: ID!): Character
   }
 `;
