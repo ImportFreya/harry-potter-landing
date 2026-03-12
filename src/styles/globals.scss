@@ -1,0 +1,63 @@
+@use './variables' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-bg-primary;
+  color: $color-parchment;
+  font-family: $font-body;
+  cursor: url('/cursor/wand.png') 4 4, auto;
+  overflow-x: hidden;
+}
+
+a {
+  color: $color-gold;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-gold-light;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: url('/cursor/wand.png') 4 4, auto;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba($color-gold, 0.4);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba($color-gold, 0.7);
+  }
+}

@@ -1,0 +1,90 @@
+@use '@/styles/variables' as *;
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+
+  
+  &[data-variant="status"] {
+    // fallback padrão — vivo
+    background-color: #2d4a2d;
+    color: #90ee90;
+    border-color: #4a7c4a;
+  
+    // Vivo explícito
+    &[data-alive="true"] {
+      background-color: #2d4a2d;
+      color: #90ee90;
+      border-color: #4a7c4a;
+    }
+  
+    // Morto
+    &[data-alive="false"] {
+      background-color: #4a0000;
+      color: #ff6b6b;
+      border-color: #8b0000;
+    }
+  }
+  &[data-variant="status"] {
+    // fallback padrão — vivo
+    background-color: #2d4a2d;
+    color: #90ee90;
+    border-color: #4a7c4a;
+  
+    // Vivo explícito
+    &[data-alive="true"] {
+      background-color: #2d4a2d;
+      color: #90ee90;
+      border-color: #4a7c4a;
+    }
+  
+    // Morto
+    &[data-alive="false"] {
+      background-color: #4a0000;
+      color: #ff6b6b;
+      border-color: #8b0000;
+    }
+  }
+    
+
+  
+  &[data-variant="house"] {
+    &[data-house="gryffindor"] {
+      background-color: $color-gryffindor;
+      color: $color-gold;
+      border-color: $color-gold;
+    }
+
+    &[data-house="slytherin"] {
+      background-color: $color-slytherin;
+      color: #aad4aa;
+      border-color: #4a7c4a;
+    }
+
+    &[data-house="ravenclaw"] {
+      background-color: $color-ravenclaw;
+      color: #a0b4e0;
+      border-color: #3a5a9a;
+    }
+
+    &[data-house="hufflepuff"] {
+      background-color: #3a3000;
+      color: $color-hufflepuff;
+      border-color: $color-hufflepuff;
+    }
+
+    
+    &:not([data-house]),
+    &[data-house=""] {
+      background-color: #2a2a2a;
+      color: #888;
+      border-color: #444;
+    }
+  }
+}

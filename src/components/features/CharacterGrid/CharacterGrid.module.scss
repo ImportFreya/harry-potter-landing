@@ -1,0 +1,120 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: $spacing-lg $spacing-sm;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include tablet {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.title {
+  font-family: $font-magic;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: $color-gold;
+  text-align: center;
+  margin-bottom: $spacing-lg;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $color-gold, transparent);
+    margin: $spacing-xs auto 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-sm;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include wide {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+.skeleton {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: $color-bg-secondary;
+  border: 1px solid rgba($color-gold, 0.1);
+}
+
+.skeletonImage {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(
+    90deg,
+    #1a1209 25%,
+    #2a2010 50%,
+    #1a1209 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonContent {
+  padding: $spacing-sm;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.skeletonLine {
+  height: 12px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    #1a1209 25%,
+    #2a2010 50%,
+    #1a1209 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonLineShort {
+  width: 60%;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-lg;
+  color: rgba($color-parchment, 0.6);
+  text-align: center;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+  0%   { opacity: 1; }
+  100% { opacity: 0.3; }
+}
