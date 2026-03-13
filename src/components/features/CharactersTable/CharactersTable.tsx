@@ -1,6 +1,7 @@
 "use client"
+import { useCharacters } from "@/hooks/useCharacters"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import { ChevronRight, ChevronLeft, UserRound, HeartPulse, Skull, Shield } from "lucide-react"
 import styles from "./CharactersTable.module.scss"
@@ -33,19 +34,10 @@ const HOUSE_CLASS: Record<string, string> = {
 const PAGE_SIZE = 8
 
 export function CharactersTable() {
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [loading, setLoading]       = useState(true)
+  const { characters, loading, error } = useCharacters()
   const [page, setPage]             = useState(1)
 
-  useEffect(() => {
-    fetch("https://hp-api.onrender.com/api/characters")
-      .then((r) => r.json())
-      .then((data) => {
-        setCharacters(data)
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [])
+  
 
   const totalPages = Math.ceil(characters.length / PAGE_SIZE)
   const displayed  = characters.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)

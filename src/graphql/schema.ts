@@ -10,8 +10,16 @@ export const typeDefs = `#graphql
     image: String
   }
 
+  type House {
+    name: String!
+    members: [Character!]!
+    memberCount: Int!
+  }
+
   type Query {
     characters: [Character!]!
     character(id: ID!): Character
+    houses: [House!]!                      
+    house(name: String!): House 
   }
 `;

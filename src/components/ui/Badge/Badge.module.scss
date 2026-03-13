@@ -12,19 +12,19 @@
 
   
   &[data-variant="status"] {
-    // fallback padrão — vivo
+    
     background-color: #2d4a2d;
     color: #90ee90;
     border-color: #4a7c4a;
   
-    // Vivo explícito
+  
     &[data-alive="true"] {
       background-color: #2d4a2d;
       color: #90ee90;
       border-color: #4a7c4a;
     }
   
-    // Morto
+    
     &[data-alive="false"] {
       background-color: #4a0000;
       color: #ff6b6b;
@@ -32,19 +32,19 @@
     }
   }
   &[data-variant="status"] {
-    // fallback padrão — vivo
+    
     background-color: #2d4a2d;
     color: #90ee90;
     border-color: #4a7c4a;
   
-    // Vivo explícito
+  
     &[data-alive="true"] {
       background-color: #2d4a2d;
       color: #90ee90;
       border-color: #4a7c4a;
     }
   
-    // Morto
+    
     &[data-alive="false"] {
       background-color: #4a0000;
       color: #ff6b6b;

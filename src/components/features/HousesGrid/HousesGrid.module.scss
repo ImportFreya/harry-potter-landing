@@ -70,12 +70,26 @@
 .banner {
   width: 100%;
   height: 200px;
-  mix-blend-mode: multiply;
+  min-height: 200px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm;
 
   @include mobile {
     height: 150px;
+    min-height: 150px;
   }
 }
+
+
+.bannerImage {
+  object-fit: contain;
+  width: auto;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+
 
 
 .content {

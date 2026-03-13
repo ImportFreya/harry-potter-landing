@@ -29,3 +29,34 @@ export const GET_CHARACTER = gql`
     }
   }
 `;
+
+
+export const GET_HOUSES = gql`
+  query GetHouses {
+    houses {
+      name
+      memberCount
+      members {
+        id
+        name
+        image
+        alive
+      }
+    }
+  }
+`
+
+export const GET_HOUSE = gql`
+  query GetHouse($name: String!) {
+    house(name: $name) {
+      name
+      memberCount
+      members {
+        id
+        name
+        image
+        alive
+      }
+    }
+  }
+`

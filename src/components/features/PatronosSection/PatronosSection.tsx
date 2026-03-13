@@ -1,39 +1,28 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import styles from "./PatronosSection.module.scss"
+import { useCharacters } from "@/hooks/useCharacters"
 
-interface Character {
-  id: string
-  name: string
-  patronus: string
-}
+
 
 const PAGE_SIZE = 8
 
 export function PatronosSection() {
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [loading, setLoading]       = useState(true)
-  const [page, setPage]             = useState(1)
+  const [page, setPage] = useState(1)
+  const { characters: allChars, loading } = useCharacters()
+  const characters = allChars.filter((c) => c.patronus)
 
-  useEffect(() => {
-    fetch("https://hp-api.onrender.com/api/characters")
-      .then((r) => r.json())
-      .then((data: Character[]) => {
-        setCharacters(data.filter((c) => c.patronus))
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [])
+
 
   const totalPages = Math.ceil(characters.length / PAGE_SIZE)
-  const paged      = characters.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+  const paged = characters.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
   return (
     <section id="patronos" className={styles.section}>
 
-    
+
       <div className={styles.sectionTitle}>
         <span className={styles.line} />
         <span className={styles.titleText}>𓅓 Patronos</span>

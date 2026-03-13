@@ -4,31 +4,18 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { UserRound, ChevronRight, ChevronLeft } from "lucide-react"
 import styles from "./ActorsTable.module.scss"
+import { useCharacters } from "@/hooks/useCharacters"
 
-interface Character {
-  id: string
-  name: string
-  actor: string
-  image: string
-}
+
 
 const PAGE_SIZE = 8
 
 export function ActorsTable() {
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [loading, setLoading]       = useState(true)
+  const { characters: allChars, loading } = useCharacters()
+const characters = allChars.filter((c) => c.actor)
   const [page, setPage]             = useState(1)
 
-  useEffect(() => {
-    fetch("https://hp-api.onrender.com/api/characters")
-      .then((r) => r.json())
-      .then((data: Character[]) => {
-        setCharacters(data.filter((c) => c.actor))
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [])
-
+ 
   const totalPages = Math.ceil(characters.length / PAGE_SIZE)
   const displayed  = characters.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 

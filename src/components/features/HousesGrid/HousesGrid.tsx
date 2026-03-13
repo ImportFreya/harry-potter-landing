@@ -1,77 +1,85 @@
-import { ChevronRight } from "lucide-react"
+"use client"
+
+import Image from "next/image"                       
+import { ChevronRight } from "lucide-react"            
 import styles from "./HousesGrid.module.scss"
+import { useHouses } from "@/hooks/useHouses"
 
 const HOUSES = [
   {
-    key:       "Gryffindor",
-    name:      "Grifinória",
-    motto:     "Coragem e Determinação",
-    spritePos: "0% 0%",
+    key: "Gryffindor",
+    name: "Grifinória",
+    motto: "Coragem e Determinação",
+    image: "/img_01.png",
     cardClass: styles.cardGryffindor,
   },
   {
-    key:       "Hufflepuff",
-    name:      "Lufa-Lufa",
-    motto:     "Lealdade e Trabalho",
-    spritePos: "100% 0%",
+    key: "Hufflepuff",
+    name: "Lufa-Lufa",
+    motto: "Lealdade e Trabalho",
+    image: "/img_02.png",
     cardClass: styles.cardHufflepuff,
   },
   {
-    key:       "Slytherin",
-    name:      "Sonserina",
-    motto:     "Ambição e Astúcia",
-    spritePos: "0% 100%",
+    key: "Slytherin",
+    name: "Sonserina",
+    motto: "Ambição e Astúcia",
+    image: "/img_03.png",
     cardClass: styles.cardSlytherin,
   },
   {
-    key:       "Ravenclaw",
-    name:      "Corvinal",
-    motto:     "Inteligência e Sabedoria",
-    spritePos: "100% 100%",
+    key: "Ravenclaw",
+    name: "Corvinal",
+    motto: "Inteligência e Sabedoria",
+    image: "/img_04.png",
     cardClass: styles.cardRavenclaw,
   },
 ]
 
+
 export function HousesGrid() {
+  const { houses, loading } = useHouses()
+
   return (
     <section id="houses" className={styles.section}>
-
-    
       <div className={styles.sectionTitle}>
         <span className={styles.line} />
-        <span className={styles.titleText}>⚯⚡︎ Casas de Hogwarts</span>
+        <span className={styles.titleText}>⚡︎ Casas de Hogwarts</span>
         <span className={styles.line} />
       </div>
 
-  
       <div className={styles.grid}>
-        {HOUSES.map((house) => (
-          <article key={house.key} className={`${styles.card} ${house.cardClass}`}>
+        {HOUSES.map((house) => {
+          const houseData = houses.find((h) => h.name === house.key)
 
-          
-            <div
-              className={styles.banner}
-              style={{
-                backgroundImage:    "url('/houses-banner.jpg')",
-                backgroundSize:     "200% 200%",
-                backgroundPosition: house.spritePos,
-                backgroundRepeat:   "no-repeat",
-              }}
-            />
-
-            
-            <div className={styles.content}>
-              <h3 className={styles.houseName}>{house.name}</h3>
-              <p className={styles.houseMotto}>{house.motto}</p>
-              <button className={styles.btn}>
-                Saiba Mais <ChevronRight size={13} />
-              </button>
-            </div>
-
-          </article>
-        ))}
+          return (
+            <article key={house.key} className={`${styles.card} ${house.cardClass}`}>
+              <div className={styles.banner}>
+                <Image
+                  src={house.image}
+                  alt={house.name}
+                  width={180}
+                  height={180}
+                  className={styles.bannerImage}
+                  style={{ mixBlendMode: "multiply" }}
+                />
+              </div>
+              <div className={styles.content}>
+                <h3 className={styles.houseName}>{house.name}</h3>
+                <p className={styles.houseMotto}>{house.motto}</p>
+                {!loading && houseData && (
+                  <p className={styles.memberCount}>
+                    {houseData.memberCount} membros
+                  </p>
+                )}
+                <button className={styles.btn}>
+                  Saiba Mais <ChevronRight size={13} />
+                </button>
+              </div>
+            </article>
+          )
+        })}
       </div>
-
     </section>
   )
 }
