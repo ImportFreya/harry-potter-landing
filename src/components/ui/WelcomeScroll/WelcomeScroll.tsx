@@ -87,11 +87,6 @@ export function WelcomeScroll() {
             {displayed}
             {!done && <span className={styles.cursor}>|</span>}
           </div>
-          {done && (
-            <button className={styles.enterBtn} onClick={handleClose}>
-              Estação de Hogsmeade
-            </button>
-          )}
         </div>
 
       </div>

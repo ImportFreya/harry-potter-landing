@@ -1,0 +1,189 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md;
+}
+
+.modal {
+  background: $section-bg;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+
+  @include mobile {
+    padding: $spacing-md;
+    max-height: 95vh;
+  }
+}
+
+.modalGryffindor { border-color: $gryffindor-gold;  }
+.modalHufflepuff { border-color: $hufflepuff-gold;  }
+.modalSlytherin  { border-color: $slytherin-silver; }
+.modalRavenclaw  { border-color: $ravenclaw-bronze; }
+
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.crest {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.emoji { font-size: 1.4rem; line-height: 1; }
+
+.title {
+  font-family: var(--font-medieval);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 2px 0;
+
+  @include mobile { font-size: 1.1rem; }
+}
+
+.titleGryffindor { color: $gryffindor-bg;  }
+.titleHufflepuff { color: $hufflepuff-bg;  }
+.titleSlytherin  { color: $slytherin-bg;   }
+.titleRavenclaw  { color: $ravenclaw-bg;   }
+
+.memberCount {
+  font-size: 0.8rem;
+  color: $text-muted;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-muted;
+  padding: 4px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s;
+
+  &:hover { color: $text-primary; }
+}
+
+
+.description {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: $text-primary;
+  border-top: 1px solid rgba($parchment-border, 0.4);
+  padding-top: $spacing-md;
+}
+
+
+.carouselSection {
+  border-top: 1px solid rgba($parchment-border, 0.4);
+  padding-top: $spacing-md;
+}
+
+.carouselLabel {
+  font-family: var(--font-medieval);
+  font-size: 0.85rem;
+  color: $text-muted;
+  margin-bottom: $spacing-sm;
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.carousel {
+  display: flex;
+  gap: $spacing-sm;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  flex: 1;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.memberCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  width: 72px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba($parchment-border, 0.5);
+}
+
+.avatarFallback {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba($parchment-border, 0.2);
+  border: 2px solid rgba($parchment-border, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-muted;
+}
+
+.memberName {
+  font-size: 0.62rem;
+  color: $text-muted;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 72px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.arrow {
+  background: rgba($parchment-border, 0.2);
+  border: 1px solid rgba($parchment-border, 0.4);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $text-primary;
+  flex-shrink: 0;
+  transition: background 0.15s;
+
+  &:hover { background: rgba($parchment-border, 0.4); }
+}

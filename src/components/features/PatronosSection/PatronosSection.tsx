@@ -34,6 +34,9 @@ export function PatronosSection() {
           <p className={styles.loading}>Invocando patronos...</p>
         ) : (
           <>
+          <div className={styles.tableHeader}>
+        <span>𓅓 Patrono</span>
+      </div>
             <ul className={styles.list}>
               {paged.map((char) => (
                 <li key={char.id} className={styles.item}>

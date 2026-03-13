@@ -110,3 +110,18 @@
   font-size: 0.82rem;
   color: $text-muted;
 }
+
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px $spacing-md;
+  background-color: $table-header-bg;
+  color: $table-header-text;
+  font-family: var(--font-medieval);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
