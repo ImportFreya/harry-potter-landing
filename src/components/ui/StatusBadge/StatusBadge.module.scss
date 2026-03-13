@@ -1,0 +1,19 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.alive {
+  background-color: #2d6a2d;
+  color: #b8f0b8;
+}
+
+.dead {
+  background-color: #6a2020;
+  color: #f0b8b8;
+}

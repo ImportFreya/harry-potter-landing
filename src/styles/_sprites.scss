@@ -1,0 +1,71 @@
+
+
+%icon-base {
+  background-image: url('/sprites/hp-icons.png');
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-size: 640px auto; 
+}
+
+.icon-sorting-hat {
+  @extend %icon-base;
+  background-position: 0px 0px;
+}
+
+.icon-hogwarts-crest {
+  @extend %icon-base;
+  background-position: -160px 0px;
+}
+
+.icon-book {
+  @extend %icon-base;
+  background-position: -320px 0px;
+}
+
+.icon-scroll {
+  @extend %icon-base;
+  background-position: -480px 0px;
+}
+
+.icon-search {
+  @extend %icon-base;
+  background-position: 0px -160px;
+}
+
+.icon-golden-snitch {
+  @extend %icon-base;
+  background-position: 0px -320px;
+}
+
+.icon-deathly-hallows {
+  @extend %icon-base;
+  background-position: -160px -320px;
+}
+
+.icon-potion {
+  @extend %icon-base;
+  background-position: -320px -320px;
+}
+
+.icon-owl {
+  @extend %icon-base;
+  background-position: -480px -320px;
+}
+
+.icon-arrow-left {
+  @extend %icon-base;
+  background-position: 0px -480px;
+}
+
+.icon-cauldron {
+  @extend %icon-base;
+  background-position: -160px -480px;
+}
+
+.icon-arrow-right {
+  @extend %icon-base;
+  background-position: -320px -480px;
+}

@@ -1,24 +1,24 @@
-import type { Metadata } from "next";
-import { ApolloProvider } from "@/context/ApolloProvider";
-import { Header } from "@/components/layout/Header/Header";
-import "@/styles/globals.scss";
+import type { Metadata } from "next"
+import "./globals.scss"
+import styles from "./layout.module.scss"
+import { WelcomeScroll } from "@/components/ui/WelcomeScroll/WelcomeScroll"
+import { AudioPlayer }   from "@/components/ui/AudioPlayer/AudioPlayer"
 
 export const metadata: Metadata = {
-  title: "Wiki Mágica — Harry Potter",
-  description: "A jornada mágica do desenvolvimento",
-};
+  title: "Harry Potter — Enciclopédia Bruxa",
+  description: "Explore personagens, casas, patronos e feitiços do universo de Harry Potter.",
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>
-        <ApolloProvider>
-          <Header />
-          <main style={{ paddingTop: "70px" }}>
-            {children}
-          </main>
-        </ApolloProvider>
+        <WelcomeScroll />
+        <AudioPlayer />
+        <div className={styles.parchmentWrapper}>
+          {children}
+        </div>
       </body>
     </html>
-  );
+  )
 }

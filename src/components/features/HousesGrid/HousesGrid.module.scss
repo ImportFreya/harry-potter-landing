@@ -1,0 +1,149 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto $spacing-xl;
+  padding: 0 $spacing-md;
+}
+
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, $parchment-border, transparent);
+}
+
+.titleText {
+  font-family: var(--font-medieval);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $text-primary;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-sm;
+  }
+}
+
+
+.card {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+  background-color: $section-bg;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.cardGryffindor { border-color: $gryffindor-gold;   }
+.cardSlytherin  { border-color: $slytherin-silver;  }
+.cardHufflepuff { border-color: $hufflepuff-gold;   }
+.cardRavenclaw  { border-color: $ravenclaw-bronze;  }
+
+
+.banner {
+  width: 100%;
+  height: 200px;
+  mix-blend-mode: multiply;
+
+  @include mobile {
+    height: 150px;
+  }
+}
+
+
+.content {
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  text-align: center;
+  border-top: 1px solid rgba($parchment-border, 0.4);
+}
+
+.houseName {
+  font-family: var(--font-medieval);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.houseMotto {
+  font-size: 0.78rem;
+  color: $text-muted;
+  line-height: 1.4;
+}
+
+
+.cardGryffindor .houseName { color: $gryffindor-bg;  }
+.cardHufflepuff .houseName { color: $hufflepuff-bg;  }
+.cardSlytherin  .houseName { color: $slytherin-bg;   }
+.cardRavenclaw  .houseName { color: $ravenclaw-bg;   }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  margin-top: $spacing-xs;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: filter 0.15s;
+  font-family: var(--font-body);
+  font-weight: 600;
+
+  &:hover { filter: brightness(1.15); }
+}
+
+.cardGryffindor .btn {
+  background-color: $gryffindor-bg;
+  color: $gryffindor-text;
+  border-color: rgba($gryffindor-text, 0.4);
+}
+
+.cardHufflepuff .btn {
+  background-color: $hufflepuff-bg;
+  color: $hufflepuff-text;
+  border-color: rgba($hufflepuff-text, 0.4);
+}
+
+.cardSlytherin .btn {
+  background-color: $slytherin-bg;
+  color: $slytherin-text;
+  border-color: rgba($slytherin-text, 0.4);
+}
+
+.cardRavenclaw .btn {
+  background-color: $ravenclaw-bg;
+  color: $ravenclaw-text;
+  border-color: rgba($ravenclaw-text, 0.4);
+}

@@ -1,0 +1,215 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: $spacing-lg $spacing-md;
+  max-width: 1100px;
+  margin: 0 auto $spacing-xl;
+}
+
+.inner {
+  @include parchment-card;
+  overflow: hidden;
+}
+
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: 10px $spacing-md;
+  background-color: $table-header-bg;
+  color: $table-header-text;
+  font-family: var(--font-medieval);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+
+.loading {
+  padding: $spacing-xl;
+  text-align: center;
+  color: $text-muted;
+
+  span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    font-style: italic;
+  }
+}
+
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+
+  thead tr {
+    background-color: $table-header-bg;
+    color: $table-header-text;
+
+    th {
+      padding: 10px $spacing-md;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-bottom: 2px solid $table-border;
+      font-family: var(--font-medieval);
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid rgba($table-border, 0.25);
+    transition: background-color 0.12s;
+
+    &:nth-child(odd)  { background-color: $table-row-odd; }
+    &:nth-child(even) { background-color: $table-row-even; }
+    &:hover           { background-color: rgba($parchment-border, 0.18); }
+
+    td {
+      padding: 8px $spacing-md;
+      vertical-align: middle;
+      color: $text-primary;
+    }
+  }
+}
+
+.tdPhoto {
+  width: 60px;
+  padding: 6px $spacing-sm !important;
+}
+
+.photoWrapper {
+  position: relative;
+  width: 48px;
+  height: 52px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: $parchment-dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.photo {
+  object-fit: cover;
+  object-position: top;
+}
+
+.photoFallback {
+  color: $text-muted;
+}
+
+.tdName {
+  font-weight: 700;
+  color: $text-primary;
+  white-space: nowrap;
+}
+
+.tdMuted {
+  color: $text-muted;
+  font-size: 0.82rem;
+}
+
+
+.houseBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.houseGryffindor { background-color: $gryffindor-bg;  color: $gryffindor-text; }
+.houseSlytherin  { background-color: $slytherin-bg;   color: $slytherin-text;  }
+.houseHufflepuff { background-color: $hufflepuff-bg;  color: $hufflepuff-text; }
+.houseRavenclaw  { background-color: $ravenclaw-bg;   color: $ravenclaw-text;  }
+
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.alive { background-color: $status-alive-bg; color: $status-alive-text; }
+.dead  { background-color: $status-dead-bg;  color: $status-dead-text;  }
+
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-sm $spacing-md;
+  border-top: 1px solid rgba($table-border, 0.3);
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.btnPag {
+  @include btn-medieval($table-header-bg, $table-header-text);
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    filter: none;
+  }
+}
+
+.pageBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid rgba($table-border, 0.4);
+  color: $text-secondary;
+  transition: background-color 0.12s, color 0.12s;
+
+  &:hover {
+    background-color: rgba($table-border, 0.2);
+  }
+}
+
+.pageBtnActive {
+  background-color: $table-header-bg;
+  color: $table-header-text;
+  border-color: $table-header-bg;
+}
+
+.ellipsis {
+  color: $text-muted;
+  font-size: 0.85rem;
+  padding: 0 2px;
+}
+

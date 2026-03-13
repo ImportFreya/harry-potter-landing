@@ -1,0 +1,44 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.btn {
+  position: fixed;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba($gryffindor-gold, 0.5);
+  background-color: rgba($header-bg, 0.92);
+  color: $gryffindor-gold;
+  font-size: 0.8rem;
+  font-family: var(--font-medieval);
+  cursor: url('/cursor/normal.png') 0 0, pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.15s;
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+
+  &:hover {
+    background-color: rgba($header-bg, 1);
+    border-color: $gryffindor-gold;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.label {
+  @include mobile {
+    display: none;
+  }
+}

@@ -2,135 +2,168 @@
 @use '@/styles/mixins' as *;
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 100;
-  border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
-
-  
-  &[data-scrolled="true"] {
-    background: rgba(#0a0a0a, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom-color: rgba($color-gold, 0.2);
-  }
+  background-color: $header-bg;
+  border-bottom: 2px solid $header-border;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  position: relative; 
 }
 
-.container {
-  max-width: 1440px;
+.inner {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: $spacing-sm $spacing-md;
+  padding: 0 $spacing-md;
+  height: 76px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  @include tablet {
-    padding: $spacing-sm $spacing-lg;
-  }
+  gap: $spacing-lg;
+  position: relative;
+  z-index: 2; 
 }
-
-
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: $spacing-sm;
   text-decoration: none;
+  flex-shrink: 0;
+  &:hover { text-decoration: none; }
 }
 
-.logoIcon {
-  font-size: 1.5rem;
+.logoImageWrapper {
+  position: relative;
+  width: 60px;
+  height: 70px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: transparent;
+}
+
+.logoImage {
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: lighten;
 }
 
 .logoText {
-  font-family: $font-magic;
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  color: $color-gold;
-  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logoTitle {
+  font-family: var(--font-medieval);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $gryffindor-gold;
+  letter-spacing: 0.04em;
 }
 
 .logoSub {
   font-size: 0.65rem;
-  color: rgba($color-parchment, 0.5);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  display: none;
-
-  @include tablet {
-    display: block;
-  }
+  color: rgba($header-text, 0.55);
 }
 
+.searchBox {
+  flex: 1;
+  max-width: 340px;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  background-color: rgba(#fff, 0.06);
+  border: 1px solid rgba($header-border, 0.4);
+  border-radius: 4px;
+  padding: 6px 12px;
+
+  @include mobile { display: none; }
+}
+
+.searchIcon {
+  color: rgba($header-text, 0.45);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.85rem;
+  color: $header-text;
+  font-family: var(--font-body);
+
+  &::placeholder { color: rgba($header-text, 0.35); }
+}
 
 .nav {
-  display: none;
+  display: flex;
   align-items: center;
-  gap: $spacing-md;
+  gap: $spacing-lg;
+  margin-left: auto;
 
-  @include tablet {
-    display: flex;
-  }
+  @include tablet { display: none; }
 }
 
 .navLink {
-  font-size: 0.9rem;
-  color: rgba($color-parchment, 0.8);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 4px 0;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  font-size: 0.85rem;
+  color: rgba($header-text, 0.8);
+  text-decoration: none;
+  transition: color 0.15s;
+  white-space: nowrap;
 
   &:hover {
-    color: $color-gold;
-    border-bottom-color: $color-gold;
+    color: $gryffindor-gold;
+    text-decoration: none;
   }
 }
 
+.hamburger {
+  display: none;
+  margin-left: auto;
+  color: $header-text;
+  padding: $spacing-xs;
 
-.menuButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: $color-gold;
-
-  @include tablet {
-    display: none;
-  }
+  @include tablet { display: flex; }
 }
-
-.menuIcon {
-  font-size: 1.3rem;
-}
-
 
 .mobileNav {
   display: flex;
   flex-direction: column;
-  background: rgba(#0a0a0a, 0.95);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid rgba($color-gold, 0.2);
+  background-color: $header-bg;
+  border-top: 1px solid rgba($header-border, 0.3);
   padding: $spacing-sm 0;
-
-  @include tablet {
-    display: none;
-  }
 }
 
 .mobileNavLink {
-  padding: $spacing-sm $spacing-md;
-  color: rgba($color-parchment, 0.8);
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-bottom: 1px solid rgba($color-gold, 0.1);
-  transition: color 0.2s ease, background 0.2s ease;
+  padding: 10px $spacing-lg;
+  font-size: 0.9rem;
+  color: rgba($header-text, 0.85);
+  text-decoration: none;
+  border-bottom: 1px solid rgba($header-border, 0.1);
 
   &:hover {
-    color: $color-gold;
-    background: rgba($color-gold, 0.05);
+    background-color: rgba($header-border, 0.1);
+    color: $gryffindor-gold;
+    text-decoration: none;
   }
+}
+
+.skyline {
+  position: absolute;  
+  bottom: -6;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background-image: url('/horizons_bridge.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  filter: invert(1) sepia(1) saturate(0.8) hue-rotate(5deg) brightness(0.85);
+  opacity: 0.25;       
+  pointer-events: none;
+  z-index: 1;         
 }

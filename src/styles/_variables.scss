@@ -1,31 +1,58 @@
 
-$color-bg-primary: #0a0a0a;
-$color-bg-secondary: #1a1209;
+$parchment-bg:     #f2e8d5;
+$parchment-dark:   #e0cfa8;
+$parchment-border: #c4a96a;
 
 
-$color-gold: #c9a84c;
-$color-gold-light: #f0d080;
+$text-primary:     #2c1a0e;
+$text-secondary:   #5c3d1e;
+$text-muted:       #8b6340;
+$text-link:        #7a3b00;
+$text-link-hover:  #b05a00;
 
 
-$color-parchment: #f4e4c1;
+$header-bg:        #1a1a2e;
+$header-border:    #c4a96a;
+$header-text:      #f0e6cc;
+
+$gryffindor-bg:    #740001;
+$gryffindor-gold:  #d3a625;
+$gryffindor-text:  #ffd700;
+
+$slytherin-bg:     #1a472a;
+$slytherin-silver: #aaaaaa;
+$slytherin-text:   #c0c0c0;
+
+$hufflepuff-bg:    #3a2c00;
+$hufflepuff-gold:  #ecb939;
+$hufflepuff-text:  #ffdf6c;
+
+$ravenclaw-bg:     #0e1a40;
+$ravenclaw-bronze: #946b2d;
+$ravenclaw-text:   #a0b4e0;
 
 
-$color-gryffindor: #740001;
-$color-slytherin: #1a472a;
-$color-ravenclaw: #0e1a40;
-$color-hufflepuff: #ecb939;
+$table-header-bg:  #4a2c0a;
+$table-header-text:#f5e6c8;
+$table-row-odd:    rgba(#c4a96a, 0.10);
+$table-row-even:   rgba(#c4a96a, 0.22);
+$table-border:     #c4a96a;
 
 
-$font-magic: 'Georgia', serif;
-$font-body: 'Georgia', serif;
-
-$spacing-xs: 8px;
-$spacing-sm: 16px;
-$spacing-md: 24px;
-$spacing-lg: 48px;
+$status-alive-bg:  #1e4d1e;
+$status-alive-text:#a8f0a8;
+$status-dead-bg:   #4d1e1e;
+$status-dead-text: #f0a8a8;
 
 
-$bp-mobile: 480px;
-$bp-tablet: 768px;
-$bp-desktop: 1024px;
-$bp-wide: 1440px;
+$section-bg:       rgba(#f2e8d5, 0.85);
+$section-border:   #c4a96a;
+$section-radius:   6px;
+
+
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 40px;

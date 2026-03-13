@@ -1,0 +1,112 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto $spacing-xl;
+  padding: 0 $spacing-md;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, $parchment-border, transparent);
+}
+
+.titleText {
+  font-family: var(--font-medieval);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $text-primary;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+
+.box {
+  @include parchment-card;
+  overflow: hidden;
+}
+
+.loading {
+  padding: $spacing-lg;
+  text-align: center;
+  color: $text-muted;
+  font-style: italic;
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba($table-border, 0.2);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px $spacing-md;
+  border-bottom: 1px solid rgba($table-border, 0.15);
+  border-right: 1px solid rgba($table-border, 0.1);
+  gap: $spacing-sm;
+  transition: background-color 0.1s;
+
+  &:hover { background-color: rgba($parchment-border, 0.12); }
+
+  &:nth-child(4n) { border-right: none; }
+}
+
+.animal {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: $text-primary;
+  text-transform: capitalize;
+  flex-shrink: 0;
+}
+
+.owner {
+  font-size: 0.75rem;
+  color: $text-muted;
+  text-align: right;
+  line-height: 1.3;
+}
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-sm $spacing-md;
+  border-top: 1px solid rgba($table-border, 0.25);
+}
+
+.pagBtn {
+  @include btn-medieval($table-header-bg, $table-header-text);
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    filter: none;
+  }
+}
+
+.pagInfo {
+  font-size: 0.82rem;
+  color: $text-muted;
+}

@@ -1,0 +1,58 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.footer {
+  margin-top: $spacing-xl;
+  background-color: $header-bg;
+  border-top: 2px solid $header-border;
+  overflow: hidden;
+  position: relative; 
+}
+
+.train {
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-image: url('/hogwarts-express.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  filter: invert(1) sepia(1) saturate(0.8) hue-rotate(5deg) brightness(0.85);
+  opacity: 0.25;    
+  pointer-events: none;
+  z-index: 1;
+
+  @include mobile {
+    height: 50px;
+  }
+}
+
+
+.content {
+  position: relative;
+  z-index: 2;        
+  padding: $spacing-md $spacing-lg $spacing-lg;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.title {
+  font-family: var(--font-medieval);
+  font-size: 0.9rem;
+  color: $gryffindor-gold;
+  letter-spacing: 0.04em;
+}
+
+.sub {
+  font-size: 0.75rem;
+  color: rgba($header-text, 0.45);
+
+  a {
+    color: rgba($header-text, 0.65);
+    &:hover { color: $gryffindor-gold; }
+  }
+}

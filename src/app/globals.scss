@@ -1,0 +1,74 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+@font-face {
+  font-family: 'HarryP';
+  src: url('/fonts/HarryP.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+
+:root {
+  --font-medieval: 'HarryP', 'Cinzel', serif;
+  --font-body:     'Lora', serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: $text-primary;
+  background-color: $parchment-bg;
+  min-height: 100vh;
+}
+
+a {
+  color: $text-link;
+  text-decoration: none;
+  &:hover { text-decoration: underline; color: $text-link-hover; }
+}
+
+button {
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// ── Cursores Harry Potter ─────────────────────────
+*,
+*::before,
+*::after {
+  cursor: url('/cursor/normal.png') 0 0, auto;
+}
+
+a,
+button,
+[role="button"],
+label,
+select {
+  cursor: url('/cursor/precison.png') 0 0, pointer;
+}
+
+input,
+textarea {
+  cursor: url('/cursor/TEXTSELECT.png') 0 0, text;
+}
+
+

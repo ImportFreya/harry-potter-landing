@@ -1,0 +1,69 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.hero {
+  text-align: center;
+  padding: $spacing-xl $spacing-md;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+.ornamentTop,
+.ornamentBottom {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.ornamentBottom {
+  margin-bottom: 0;
+  margin-top: $spacing-lg;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    $parchment-border,
+    transparent
+  );
+}
+
+.ornamentIcon {
+  color: $parchment-border;
+  flex-shrink: 0;
+  font-size: 1.1rem;      
+  line-height: 1;
+  user-select: none;
+  letter-spacing: -2px;   
+}
+
+
+.title {
+  font-family: var(--font-medieval);
+  font-size: 2rem;
+  font-weight: 700;
+  color: $text-primary;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+
+  @include mobile {
+    font-size: 1.4rem;
+  }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: $text-secondary;
+  line-height: 1.7;
+}
+
+.highlight {
+  color: $text-link;
+  font-style: italic;
+  font-weight: 600;
+}

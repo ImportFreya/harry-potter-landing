@@ -1,70 +1,60 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import styles from "./Header.module.scss";
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Search, Menu, X } from "lucide-react"
+import styles from "./Header.module.scss"
 
-const NAV_LINKS = [
-  { label: "Personagens", href: "/personagens" },
-  { label: "Casas",       href: "#casas" },
-  { label: "Feitiços",    href: "#feiticos" },
-];
+const navLinks = [
+  { label: "Personagens", href: "#characters" },
+  { label: "Casas",       href: "#houses"     },
+  { label: "Patronos",    href: "#patronos"   },
+  { label: "Atores",      href: "#actors"     },
+  { label: "Status",      href: "#"           },
+]
 
 export function Header() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-
-  useEffect(() => {
-    function handleScroll() {
-      setScrolled(window.scrollY > 50);
-    }
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll); 
-  }, []);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header
-      className={styles.header}
-      data-scrolled={scrolled}
-    >
-      <div className={styles.container}>
+    <header className={styles.header}>
+      <div className={styles.inner}>
 
         
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoIcon}>⚡</span>
-          <span className={styles.logoText}>Harry Potter</span>
-          <span className={styles.logoSub}>Wiki Mágica</span>
+          <div className={styles.logoText}>
+            <span className={styles.logoTitle}>Harry Potter</span>
+            <span className={styles.logoSub}>Enciclopédia</span>
+          </div>
         </Link>
 
       
-        <nav className={styles.nav} aria-label="Navegação principal">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className={styles.navLink}>
+        <nav className={styles.nav}>
+          {navLinks.map((link) => (
+            <Link key={link.label} href={link.href} className={styles.navLink}>
               {link.label}
             </Link>
           ))}
         </nav>
 
-    
+        
         <button
-          className={styles.menuButton}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-expanded={menuOpen}
-          aria-label="Abrir menu"
+          className={styles.hamburger}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Menu"
         >
-          <span className={styles.menuIcon}>
-            {menuOpen ? "✕" : "☰"}
-          </span>
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
+
       </div>
 
-      
+    
       {menuOpen && (
-        <nav className={styles.mobileNav} aria-label="Menu mobile">
-          {NAV_LINKS.map((link) => (
+        <nav className={styles.mobileNav}>
+          {navLinks.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
               className={styles.mobileNavLink}
               onClick={() => setMenuOpen(false)}
@@ -74,6 +64,10 @@ export function Header() {
           ))}
         </nav>
       )}
+
+    
+      <div className={styles.skyline} />
+
     </header>
-  );
+  )
 }

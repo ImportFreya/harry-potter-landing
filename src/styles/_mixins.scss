@@ -1,12 +1,57 @@
+@use '@/styles/variables' as *;
 
+
+@mixin mobile {
+  @media (max-width: 640px) { @content; }
+}
 @mixin tablet {
-  @media (min-width: 768px) { @content; }
+  @media (max-width: 1024px) { @content; }
 }
-
 @mixin desktop {
-  @media (min-width: 1024px) { @content; }
+  @media (min-width: 1025px) { @content; }
 }
 
-@mixin wide {
-  @media (min-width: 1440px) { @content; }
+
+@mixin parchment-card {
+  background-color: $section-bg;
+  border: 1px solid $section-border;
+  border-radius: $section-radius;
+  box-shadow: 0 2px 8px rgba(#2c1a0e, 0.15);
+}
+
+
+@mixin btn-medieval($bg, $text) {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 6px 14px;
+  background-color: $bg;
+  color: $text;
+  border: 1px solid rgba($text, 0.4);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+  text-decoration: none;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+}
+
+
+@mixin section-divider {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  color: $text-secondary;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $parchment-border, transparent);
+  }
 }
