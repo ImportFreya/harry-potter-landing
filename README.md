@@ -1,6 +1,6 @@
 # Harry Potter — Enciclopédia Bruxa
 
-Aplicação web desenvolvida como projeto de estudo e portfólio, explorando o universo de Harry Potter através de dados reais consumidos via API externa.
+Aplicação web desenvolvida como Desafio teste, explorando o universo de Harry Potter através de dados reais consumidos via API externa.
 
 ## Acesso
 
